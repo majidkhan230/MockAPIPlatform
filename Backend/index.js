@@ -1,35 +1,62 @@
 import express from "express";
 import { configDotenv } from "dotenv";
+import { posts } from "./models/post.js";
+import { comments } from "./models/comment.js";
 
 configDotenv();
 
-
-
 const app = express();
 
+app.get("/", (req, res) => {
+  res.status(200).send({ message: "welcome to Backend" });
+});
+
+app.get("/posts", (req, res) => {
+  res.status(200).send({
+    status:"200",
+    message: "welcome to Products",
+    data: posts,
+  });
+});
+
+app.get("/posts/:id", (req, res) => {
+  const id = req.params.id;
+  res.status(200).send({ message: `product ${id}` });
+});
 
 
-app.get("/",(req,res)=>{
-    res.status(200).send({message:"welcome to Backend"})
+app.get("/posts/:id/comments", (req, res) => {
+  const id = req.params.id;
+
+const filterComments = comments.filter((item)=>{
+    return item.postId == id
 })
 
-app.get("/posts",(req,res)=>{
-    res.status(200).send({message:"welcome to Products"})
+if (filterComments.length === 0) {
+    return res.status(404).send({
+      status: "404",
+      message: `No comments found for product ${id}`,
+      comments: [],
+    });
+  }
+
+
+res.status(200).send({
+    status:"200",
+    message:`product ${id}`,
+    comments:filterComments
 })
-
-app.get("/posts/:id",(req,res)=>{
-    const id = req.params.id
-    res.status(200).send({message:`product ${id}`})
-})
-
-
+//   res.status(200).send({ 
+//     message: `product ${id}`,
+//     data:filterComments,
+//  });
+});
 
 
 
 
+const PORT = process.env.PORT;
 
-const PORT = process.env.PORT 
-
-app.listen(PORT,()=>{
-    console.log("servers is sucessfully started")
-})
+app.listen(PORT, () => {
+  console.log("servers is sucessfully started");
+});
