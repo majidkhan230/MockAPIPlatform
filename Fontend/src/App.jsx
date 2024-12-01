@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Header from "./components/Header";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="px-40 ">
+      {/* header */}
+      <Header />
+      {/* main */}
+      <div className="main">
+        {/* hero */}
+        <div className="hero py-20  text-[#374151]">
+          <h1 className="text-6xl">JSON Placeholder</h1>
+          <h3 className="text-3xl mt-10">
+            Free Fake and reliable API for testing and prototyping.
+          </h3>
+          <p class="text-3xl mt-5">
+            Powered by
+            <a href="https://github.com/typicode/json-server">JSON Server</a>+
+            <a href="https://github.com/typicode/lowdb">LowDB</a>.
+          </p>
+          <p className="font-bold mt-5 text-lg">
+            Serving ~3 billion requests each month.
+          </p>
+        </div>
 
-export default App
+        {/* sponsor */}
+        <div>
+          <h1 className="text-4xl mb-5">Sponsors</h1>
+          <p className="mb-5">
+            JSONPlaceholder is supported by the following companies and Sponsors
+            on GitHub, check them out 💖
+          </p>
+          <img
+            src="/assets/images/mockend.svg"
+            className="object-contain w-1/2 my-10"
+            alt="mockend"
+          />
+          <img src="/assets/images/img1.png" alt="zuplo" />
+        </div>
+
+        {/* try it */}
+      </div>
+      <div className="footer"></div>
+    </div>
+  );
+}
