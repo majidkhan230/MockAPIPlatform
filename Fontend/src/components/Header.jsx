@@ -6,7 +6,7 @@ function Header() {
         <div className="logo text-xl font-bold">
             JsonPlaceholder
         </div>
-        <ul className='flex space-x-5 '>
+        <ul className='space-x-5 hidden md:flex '>
             <li>Guide</li>
             <li>Sponsor this project</li>
             <li>Blog</li>
