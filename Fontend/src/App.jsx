@@ -126,13 +126,8 @@ export default function App() {
             All HTTP methods are supported. You can use http or https for your
             requests.
           </p>
-          <table className="w-full sm:w-3/4 lg:w-1/2  border-collapse mx-auto">
-            <thead>
-              <tr className="border-b">
-                <th className="font-bold">Method</th>
-                <th className="font-bold">Route</th>
-              </tr>
-            </thead>
+          <table className="w-full sm:w-3/4 lg:w-1/2  border-collapse ">
+           
             <tbody>
               <tr>
                 <td>GET</td>
