@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Code from "./components/Code";
 import Header from "./components/Header";
 
 export default function App() {
+  const [runScript, setRunScript] = useState(false);
+
+  const handleBtn = () => {
+    setRunScript(true);
+  };
+
   return (
     <div className="px-4 sm:px-8 lg:px-40">
       {/* Header */}
@@ -64,23 +70,22 @@ export default function App() {
             Run this code here, in a console or from any site:
           </p>
           <Code
-            codeTxt={`fetch('https://jsonplaceholder.typicode.com/todos/1')
+            codeTxt={`fetch('https://https://mock-api-platform.vercel.app/')
   .then(response => response.json())
   .then(json => console.log(json))
   .catch(error => console.error('Error:', error));`}
           />
           <div className="btn my-5 ">
-            <button className="text-white bg-black px-4 py-2 rounded-lg font-bold hover:bg-[#374151]">
+            <button
+              className="text-white bg-black px-4 py-2 rounded-lg font-bold hover:bg-[#374151]"
+              onClick={handleBtn}
+            >
               Run script
             </button>
           </div>
           <Code
-            codeTxt={`{
-  "userId": 1,
-  "id": 1,
-  "title": "delectus aut autem",
-  "completed": false
-}`}
+            codeTxt={`{}`}
+            runScript={runScript}
           />
           <p className="my-5 ">
             Congrats! You've made your first call to JSONPlaceholder. 😃 🎉
@@ -127,7 +132,6 @@ export default function App() {
             requests.
           </p>
           <table className="w-full sm:w-3/4 lg:w-1/2  border-collapse ">
-           
             <tbody>
               <tr>
                 <td>GET</td>
