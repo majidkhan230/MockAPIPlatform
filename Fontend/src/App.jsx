@@ -18,7 +18,7 @@ export default function App() {
       <div className="main">
         {/* Hero Section */}
         <div className="hero py-10 lg:py-20 text-[#374151] text-center lg:text-left">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl">JSON Placeholder</h1>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl">MockAPI-Platform</h1>
           <h3 className="text-xl sm:text-2xl lg:text-3xl mt-5 lg:mt-10">
             Free Fake and Reliable API for Testing and Prototyping.
           </h3>
@@ -48,7 +48,7 @@ export default function App() {
         <div className="py-20 ">
           <h1 className="text-3xl sm:text-4xl mb-5">Sponsors</h1>
           <p className="mb-5">
-            JSONPlaceholder is supported by the following companies and Sponsors
+            MockAPI-Platform is supported by the following companies and Sponsors
             on GitHub, check them out 💖
           </p>
           <img
@@ -88,7 +88,7 @@ export default function App() {
             runScript={runScript}
           />
           <p className="my-5 ">
-            Congrats! You've made your first call to JSONPlaceholder. 😃 🎉
+            Congrats! You've made your first call to MockAPI-Platform. 😃 🎉
           </p>
         </div>
 
@@ -96,7 +96,7 @@ export default function App() {
         <div className="py-20 text-center lg:text-left">
           <h1 className="text-3xl sm:text-4xl mb-5">When to Use</h1>
           <p className="mb-5">
-            JSONPlaceholder is a free online REST API that you can use whenever
+            MockAPI-Platform is a free online REST API that you can use whenever
             you need some fake data. It can be in a README on GitHub, for a demo
             on CodeSandbox, in code examples on Stack Overflow, ...or simply to
             test things locally.
@@ -107,7 +107,7 @@ export default function App() {
         <div className="py-20  lg:text-left">
           <h1 className="text-3xl sm:text-4xl mb-5">Resources</h1>
           <p className="mb-5">
-            JSONPlaceholder comes with a set of 6 common resources:
+            MockAPI-Platform comes with a set of 6 common resources:
           </p>
           <ul className="list-disc pl-5 lg:pl-10">
             <li className="my-2">/posts - 100 posts</li>
@@ -182,8 +182,8 @@ export default function App() {
         </div>
 
         {/* Footer */}
-        <div className="footer  py-10 border-t">
-          <p>Made with ❤️ by Typicode © 2024</p>
+        <div className="footer  text-center py-10 border-t">
+          <p>Made with ❤️ by Majid © 2024</p>
         </div>
       </div>
     </div>
