@@ -1,68 +1,82 @@
-const express = require('express')
-const path = require("path")
-const fs =  require("fs")
+const express = require("express");
+const path = require("path");
+const fs = require("fs");
 
-
-require('dotenv').config()
-
+require("dotenv").config();
 
 // import { posts } from "./models/post.js";
 // import { comments } from "./models/comment.js";
 
 // configDotenv();
 
-
 const app = express();
 
-app.use(express.json())
+app.use(express.json());
 
+const dataPath = path.join(__dirname, "data.json");
 
-const dataPath = path.join(__dirname,'data.json')
-
-const data = JSON.parse(fs.readFileSync(dataPath,"utf-8"))
-
-
-app.get("/", (req, res) => {
-    res.status(200).send({ message: "welcome to Backend" });
-  });
-
-app.get("/posts",(req,res)=>{
-  res.status(200).send(data.posts)
-})
-
-app.get("/comments",(req,res)=>{
-  res.status(200).send(data.comments)
-})
-
-app.get("/albums",(req,res)=>{
-  res.status(200).send(data.albums)
-})
-
-app.get("/photos",(req,res)=>{
-  res.status(200).send(data.photos)
-})
-
-app.get("/users",(req,res)=>{
-  res.status(200).send(data.users)
-})
-
-app.get("/todos",(req,res)=>{
-  res.status(200).send(data.todos)
-})
-
+const data = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
 
 // console.log(path.join(__dirname, 'data.json'));
 // console.log(fs.readFileSync(dataPath,'utf-8'))
 
+app.get("/", (req, res) => {
+  res.status(200).send({ message: "welcome to Backend" });
+});
 
+app.get("/posts", (req, res) => {
+  res.status(200).send(data.posts);
+});
 
+app.get("/comments", (req, res) => {
+  const { postId } = req.query;
+  console.log(postId)
+  if (!postId) {
+    res.status(200).send(data.comments);
+  } else {
+    if (postId) {
+      const filterComments = data.comments.filter(comment => comment.postId == postId);
+      res.status(200).send(filterComments)
+    }
+  }
+});
 
+app.get("/albums", (req, res) => {
+  res.status(200).send(data.albums);
+});
 
+app.get("/photos", (req, res) => {
+  res.status(200).send(data.photos);
+});
 
+app.get("/users", (req, res) => {
+  res.status(200).send(data.users);
+});
 
+app.get("/todos", (req, res) => {
+  res.status(200).send(data.todos);
+});
 
+app.get("/posts/:id", (req, res) => {
+  const pid = req.params.id;
+  // res.send(id)
+  const post = data.posts.filter(({ id }) => {
+    return id == pid;
+  });
 
+  res.status(200).send(post);
+});
 
+app.get("/posts/:id/comments", (req, res) => {
+  const pid = req.params.id;
+  console.log(pid);
+  // res.send(id)
+  const post = data.comments.filter(({ postId }) => {
+    return postId == pid;
+  });
+
+  res.status(200).send(post);
+});
 
 // apis
 // app.get("/", (req, res) => {
@@ -81,7 +95,6 @@ app.get("/todos",(req,res)=>{
 // //   const id = req.params.id;
 // //   res.status(200).send({ message: `product ${id}` });
 // // });
-
 
 // app.get("/posts/:id/comments", (req, res) => {
 //   const id = req.params.id;
@@ -129,10 +142,7 @@ app.get("/todos",(req,res)=>{
 // })
 // })
 
-
-
 const PORT = process.env.PORT;
-
 
 // server
 app.listen(PORT, () => {
