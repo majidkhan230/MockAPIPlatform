@@ -24,17 +24,11 @@ export default function App() {
           </h3>
           <p className="text-lg sm:text-xl lg:text-2xl mt-5">
             Powered by{" "}
-            <a
-              href="https://github.com/typicode/json-server"
-              className="text-blue-500 underline"
-            >
+            <a href="#" className="text-blue-500 underline">
               JSON Server
             </a>{" "}
             +{" "}
-            <a
-              href="https://github.com/typicode/lowdb"
-              className="text-blue-500 underline"
-            >
+            <a href="#" className="text-blue-500 underline">
               LowDB
             </a>
             .
@@ -48,8 +42,8 @@ export default function App() {
         <div className="py-20 ">
           <h1 className="text-3xl sm:text-4xl mb-5">Sponsors</h1>
           <p className="mb-5">
-            MockAPI-Platform is supported by the following companies and Sponsors
-            on GitHub, check them out 💖
+            MockAPI-Platform is supported by the following companies and
+            Sponsors on GitHub, check them out 💖
           </p>
           <img
             src="/assets/images/mockend.svg"
@@ -83,10 +77,7 @@ export default function App() {
               Run script
             </button>
           </div>
-          <Code
-            codeTxt={`{}`}
-            runScript={runScript}
-          />
+          <Code codeTxt={`{}`} runScript={runScript} />
           <p className="my-5 ">
             Congrats! You've made your first call to MockAPI-Platform. 😃 🎉
           </p>
@@ -109,14 +100,47 @@ export default function App() {
           <p className="mb-5">
             MockAPI-Platform comes with a set of 6 common resources:
           </p>
-          <ul className="list-disc pl-5 lg:pl-10">
-            <li className="my-2">/posts - 100 posts</li>
-            <li className="my-2">/comments - 500 comments</li>
-            <li className="my-2">/albums - 100 albums</li>
-            <li className="my-2">/photos - 5000 photos</li>
-            <li className="my-2">/todos - 200 todos</li>
-            <li className="my-2">/users - 10 users</li>
-          </ul>
+          <table className="w-full sm:w-3/4 lg:w-1/2  border-collapse ">
+           
+            <tbody>
+              <tr>
+                <td>
+                  <a href="https://mock-api-platform.vercel.app/posts">/posts</a>
+                </td>
+                <td>100 posts</td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="https://mock-api-platform.vercel.app/comments">/comments</a>
+                </td>
+                <td>500 comments</td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="https://mock-api-platform.vercel.app/albums">/albums</a>
+                </td>
+                <td>100 albums</td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="https://mock-api-platform.vercel.app/photos">/photos</a>
+                </td>
+                <td>5000 photos</td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="https://mock-api-platform.vercel.app/todos">/todos</a>
+                </td>
+                <td>200 todos</td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="https://mock-api-platform.vercel.app/users">/users</a>
+                </td>
+                <td>10 users</td>
+              </tr>
+            </tbody>
+          </table>
           <p className="mt-5">
             <b>Note:</b> Resources have relations. For example: posts have many
             comments, albums have many photos, ... see the guide for the full
@@ -135,19 +159,35 @@ export default function App() {
             <tbody>
               <tr>
                 <td>GET</td>
-                <td>/posts</td>
+                <td>
+                  <a href="https://mock-api-platform.vercel.app/posts">
+                    /posts
+                  </a>
+                </td>
               </tr>
               <tr>
                 <td>GET</td>
-                <td>/posts/1</td>
+                <td>
+                  <a href="https://mock-api-platform.vercel.app/posts/1">
+                    /posts/1
+                  </a>
+                </td>
               </tr>
               <tr>
                 <td>GET</td>
-                <td>/posts/1/comments</td>
+                <td>
+                  <a href="https://mock-api-platform.vercel.app/posts/1/comments">
+                    /posts/1/comments
+                  </a>
+                </td>
               </tr>
               <tr>
                 <td>GET</td>
-                <td>/comments?postId=1</td>
+                <td>
+                  <a href="https://mock-api-platform.vercel.app/comments?postId=1">
+                    /comments?postId=1
+                  </a>
+                </td>
               </tr>
               <tr>
                 <td>POST</td>
